@@ -109,3 +109,7 @@ dist
 
 # Uncomment after template is created
 .idea/
+
+# migration and seeder files
+database/migrations/
+database/seeders/
