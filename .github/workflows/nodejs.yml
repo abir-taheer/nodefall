@@ -2,15 +2,14 @@ name: Node.js CI
 on: [push]
 jobs:
     front-end:
+        env:
+            working-directory: ./client
         strategy:
             matrix:
                 script: [build, test]
         runs-on: ubuntu-18.04
         steps:
             - uses: actions/checkout@v2
-            - name: Enter client directory
-              run: cd client
-
             - name: Cache react node modules
               uses: actions/cache@v1
               env:
@@ -24,9 +23,11 @@ jobs:
                       react-${{ runner.os }}-
 
             - name: Install dependencies
+              working-directory: ${{ env.working-directory }}
               run: npm install
 
             - name: Run Script
+              working-directory: ${{ env.working-directory }}
               run: npm run ${{ matrix.script }}
 
     build-on-postgres:
