@@ -1,0 +1,9 @@
+body {
+	text-align: center;
+	font-size: 100px;
+	font-family: 'Exo', sans-serif;
+}
+
+.node {
+	color: rgba(51, 88, 209, 0.972);
+}
