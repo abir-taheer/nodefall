@@ -1,18 +1,17 @@
 import React from 'react';
-import { useSpring, animated } from 'react-spring';
 import Button from '@material-ui/core/Button';
 import './App.modules.css';
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Home from "./components/home";
 
 function App() {
-	const props = useSpring({ opacity: 1, from: { opacity: 0 } });
 	return (
-		<div>
-			<animated.div style={props}>
-				<span className={'node'}>Node</span>fall
-				<h3>Welcome!</h3>
-			</animated.div>
-			<Button> Create </Button>
-		</div>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/" component={Home} />
+            </Switch>
+        </BrowserRouter>
+            
 	);
 }
 
