@@ -3,6 +3,7 @@ const cluster = require('cluster');
 const port = Number(process.env.PORT) || 3001;
 const express = require('express');
 const app = require('./app');
+const path = require("path");
 
 if (process.env.NODE_ENV === 'production') {
 	if (cluster.isMaster) {
@@ -25,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 	} else {
 
 		app.use(express.static('./client/build'));
-		app.get('*', (req, res) => res.sendFile('./client/build/index.html'));
+		app.get('*', (req, res) => res.sendFile(path.resolve('./client/build/index.html')));
 
 		// Code to run inside of a worker
 		app.listen(port, () =>
