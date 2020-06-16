@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
+import Button from '@material-ui/core/Button';
 import './App.modules.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 				<span className={'node'}>Node</span>fall
 				<h3>Welcome!</h3>
 			</animated.div>
+			<Button> Create </Button>
 		</div>
 	);
 }
