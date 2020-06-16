@@ -13,7 +13,7 @@ function Home() {
 
     return (
         <div>
-            <img src="Nodefall.gif" width="50%" margin="auto"></img>
+            <img src="Nodefall.gif" width="300px" margin="auto"></img>
             <br/>
             <Button {...buttonStyle}>Create a game</Button>
             <br/>
