@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
 
 const buttonStyle = {
     variant: "outlined",
@@ -11,7 +10,7 @@ const buttonStyle = {
 function Home() {
     return (
         <div>
-            <img src="Nodefall.gif" width="300px" margin="auto"></img>
+            <img src="Nodefall.gif" width="300px" margin="auto" alt="Nodefall"></img>
             <br/>
             <Button {...buttonStyle}>Create a game</Button>
             <br/>
