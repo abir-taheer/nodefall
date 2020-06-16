@@ -32,7 +32,7 @@ const session = expressSession({
 sequelizeStore.sync();
 
 app.use(session);
-
+const roles = await
 app.use(cookieParser(sessionSecret));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
