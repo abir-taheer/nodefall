@@ -8,9 +8,7 @@ const buttonStyle = {
     margin: "auto"
 }
 
-
 function Home() {
-
     return (
         <div>
             <img src="Nodefall.gif" width="300px" margin="auto"></img>
