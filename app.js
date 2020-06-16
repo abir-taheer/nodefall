@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
+const server = http.createServer(app);
+const io = require('socket.io')(server);
+const ioListeners = require('./ioListeners');
+const shared_session = require('express-socket.io-session');
 const morgan = require('morgan');
 const expressSession = require('express-session');
 const SequelizeConnectSession = require('connect-session-sequelize')(
@@ -32,16 +36,18 @@ const session = expressSession({
 sequelizeStore.sync();
 
 app.use(session);
-const roles = await app.use(cookieParser(sessionSecret));
+app.use(cookieParser(sessionSecret));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(
 	morgan(process.env.MORGAN_FORMAT || 'dev', {
 		skip: (req, res) => res.statusCode < 400
 	})
 );
 
+io.set('transports'['websocket']);
+io.use(shared_session(session, undefined, { autosave: true }));
+ioListeners(io);
 app.use(opengraph);
 
 // ROUTES
