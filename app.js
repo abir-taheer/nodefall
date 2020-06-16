@@ -1,7 +1,7 @@
 const path = require('path');
 const bodyParser = require('body-parser');
 const sessionSecret =
-    process.env.SESSION_SECRET || 'some_semi_permanent_secret';
+	process.env.SESSION_SECRET || 'some_semi_permanent_secret';
 const cookieParser = require('cookie-parser')(sessionSecret);
 
 const express = require('express');
@@ -16,22 +16,26 @@ const session = require('./middleware/session');
 
 app.use(session);
 app.use(cookieParser);
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(morgan(process.env.MORGAN_FORMAT || 'dev',
-               {skip : (req, res) => res.statusCode < 400}));
+app.use(
+	morgan(process.env.MORGAN_FORMAT || 'dev', {
+		skip: (req, res) => res.statusCode < 400
+	})
+);
 
 io.set('transports'['websocket']);
-io.use(shared_session(session, cookieParser, {autosave : true}));
+io.use(shared_session(session, cookieParser, { autosave: true }));
 ioListeners(io);
 
 // ROUTES
 app.use('/', require('./routes'));
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('./client/build'));
-  app.get('*', (req, res) =>
-                   res.sendFile(path.resolve('./client/build/index.html')));
+	app.use(express.static('./client/build'));
+	app.get('*', (req, res) =>
+		res.sendFile(path.resolve('./client/build/index.html'))
+	);
 }
 
 module.exports = server;
