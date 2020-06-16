@@ -9,6 +9,7 @@ const expressSession = require('express-session');
 const SequelizeConnectSession = require('connect-session-sequelize')(
 	expressSession.Store
 );
+
 const sequelizeStore = new SequelizeConnectSession({ db: database.sequelize });
 
 const sessionSecret =
