@@ -4,8 +4,8 @@
     <list default="true" id="8d0cb5e6-bfb7-4fbd-859b-fefdd9f0f55e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/locations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,8 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -95,12 +96,15 @@
       <updated>1592258747734</updated>
       <workItem from="1592258752624" duration="2231000" />
       <workItem from="1592272918757" duration="1245000" />
-      <workItem from="1592287128054" duration="2135000" />
+      <workItem from="1592287128054" duration="2377000" />
+      <workItem from="1592290110530" duration="123000" />
+      <workItem from="1592290257929" duration="101000" />
+      <workItem from="1592319666219" duration="497000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592287535162">
@@ -115,9 +119,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="239" height="539" key="HiddenNamespacesPopup/0.0.1440.900@0.0.1440.900" timestamp="1592287497485" />
-    <state x="266" y="23" width="997" height="797" key="SettingsEditor" timestamp="1592288189337">
+    <state x="266" y="23" width="997" height="797" key="SettingsEditor" timestamp="1592320160404">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="266" y="23" width="997" height="797" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592288189337" />
+    <state x="266" y="23" width="997" height="797" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592320160404" />
   </component>
 </project>
