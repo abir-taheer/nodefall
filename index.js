@@ -1,6 +1,7 @@
 require('dotenv').config();
 const cluster = require('cluster');
 const port = Number(process.env.PORT) || 3001;
+const express = require('express');
 const app = require('./app');
 
 if (process.env.NODE_ENV === 'production') {
@@ -22,6 +23,10 @@ if (process.env.NODE_ENV === 'production') {
 			cluster.fork();
 		});
 	} else {
+
+		app.use(express.static('./client/build'));
+		app.get('*', (req, res) => res.sendFile('./client/build/index.html'));
+
 		// Code to run inside of a worker
 		app.listen(port, () =>
 			console.log(`Worker ${cluster.worker.id} listening on port ${port}`)
