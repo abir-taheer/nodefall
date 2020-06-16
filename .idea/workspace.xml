@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d0cb5e6-bfb7-4fbd-859b-fefdd9f0f55e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20200614210004-create-games.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20200614225114-create-locations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20200614225258-create-roles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20200614225440-create-games.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20200614225646-create-players.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20200614230849-create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20200614231103-create-games.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +103,7 @@
       <workItem from="1592287128054" duration="2377000" />
       <workItem from="1592290110530" duration="123000" />
       <workItem from="1592290257929" duration="101000" />
-      <workItem from="1592319666219" duration="497000" />
+      <workItem from="1592319666219" duration="824000" />
     </task>
     <servers />
   </component>
