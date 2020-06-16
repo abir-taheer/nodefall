@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
 		{
 			gameID: DataTypes.INTEGER,
 			name: DataTypes.STRING,
-			isOwner: DataTypes.BOOLEAN
+			isOwner: DataTypes.BOOLEAN,
+			roleID: DataTypes.INTEGER
 		},
 		{}
 	);
