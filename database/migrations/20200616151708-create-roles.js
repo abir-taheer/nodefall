@@ -1,18 +1,18 @@
 'use strict';
 module.exports = {
 	up: (queryInterface, Sequelize) => {
-		return queryInterface.createTable('Locations', {
+		return queryInterface.createTable('Roles', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			locationID: {
-				type: Sequelize.INTEGER
-			},
 			name: {
 				type: Sequelize.STRING
+			},
+			locationID: {
+				type: Sequelize.INTEGER
 			},
 			createdAt: {
 				allowNull: false,
@@ -25,6 +25,6 @@ module.exports = {
 		});
 	},
 	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('Locations');
+		return queryInterface.dropTable('Roles');
 	}
 };
