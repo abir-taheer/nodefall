@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
 	);
 	Games.associate = function (models) {
 		// associations can be defined here
+		Games.belongsTo(models.Rooms);
+		Games.belongsTo(models.Locations);
+		Games.hasMany(models.GameRoles);
 	};
 	return Games;
 };
