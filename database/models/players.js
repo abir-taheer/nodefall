@@ -3,15 +3,17 @@ module.exports = (sequelize, DataTypes) => {
 	const Players = sequelize.define(
 		'Players',
 		{
-			gameID: DataTypes.INTEGER,
 			name: DataTypes.STRING,
+			roomID: DataTypes.INTEGER,
 			isOwner: DataTypes.BOOLEAN,
-			roleID: DataTypes.INTEGER
+			isActive: DataTypes.BOOLEAN
 		},
 		{}
 	);
 	Players.associate = function (models) {
 		// associations can be defined here
+		Players.belongsTo(models.Rooms);
+		Players.hasMany(models.GameRoles);
 	};
 	return Players;
 };
