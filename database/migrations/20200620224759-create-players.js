@@ -8,17 +8,17 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			gameID: {
+			roomID: {
 				type: Sequelize.INTEGER
-			},
-			name: {
-				type: Sequelize.STRING
 			},
 			isOwner: {
 				type: Sequelize.BOOLEAN
 			},
-			roleID: {
-				type: Sequelize.INTEGER
+			isActive: {
+				type: Sequelize.BOOLEAN
+			},
+			name: {
+				type: Sequelize.STRING
 			},
 			createdAt: {
 				allowNull: false,
