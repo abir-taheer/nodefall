@@ -19,7 +19,7 @@ function Home() {
 			></img>
 			<br />
 			<Button {...buttonStyle}>
-                <Link to="/create">
+                <Link to="/create" style={{"text-decoration": "none"}}>
                     Create a game
                 </Link>
             </Button>
