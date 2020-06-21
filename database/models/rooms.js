@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
 		'Rooms',
 		{
 			name: DataTypes.STRING,
-			publicID: DataTypes.STRING
+			publicID: DataTypes.STRING,
+			isActive: DataTypes.BOOLEAN
 		},
 		{}
 	);
