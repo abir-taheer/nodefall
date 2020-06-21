@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 
 const buttonStyle = {
 	variant: 'outlined',
@@ -17,7 +18,11 @@ function Home() {
 				alt="Nodefall"
 			></img>
 			<br />
-			<Button {...buttonStyle}>Create a game</Button>
+			<Button {...buttonStyle}>
+                <Link to="/create" style={{"text-decoration": "none"}}>
+                    Create a game
+                </Link>
+            </Button>
 			<br />
 			<Button {...buttonStyle}>Join a game</Button>
 		</div>
