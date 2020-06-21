@@ -18,7 +18,11 @@ function Home() {
 				alt="Nodefall"
 			></img>
 			<br />
-			<Button {...buttonStyle}>Create a game</Button>
+			<Button {...buttonStyle}>
+                <Link to="/create">
+                    Create a game
+                </Link>
+            </Button>
 			<br />
 			<Button {...buttonStyle}>Join a game</Button>
 		</div>
