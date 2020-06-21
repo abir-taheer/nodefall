@@ -1,11 +1,14 @@
 'use strict';
+const bcrypt = require('bcrypt');
+
 module.exports = (sequelize, DataTypes) => {
 	const Rooms = sequelize.define(
 		'Rooms',
 		{
 			name: DataTypes.STRING,
 			publicID: DataTypes.STRING,
-			isActive: DataTypes.BOOLEAN
+			isActive: DataTypes.BOOLEAN,
+			password: DataTypes.STRING
 		},
 		{}
 	);
@@ -15,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 		Rooms.hasMany(models.Games);
 	};
 
-	Rooms.prototype.getIsActive = async () => {
+	Rooms.prototype.getIsActive = async function () {
 		if (!this.isActive) {
 			return false;
 		}
@@ -43,6 +46,10 @@ module.exports = (sequelize, DataTypes) => {
 
 		// If the room is past the expiration time: return false
 		return true;
+	};
+
+	Rooms.prototype.checkPassword = async function (password) {
+		return await bcrypt.compare(password, this.password);
 	};
 
 	return Rooms;
