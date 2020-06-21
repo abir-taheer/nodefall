@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
 	up: (queryInterface, Sequelize) => {
-		return queryInterface.createTable('Players', {
+		return queryInterface.createTable('GameRoles', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
@@ -11,11 +11,11 @@ module.exports = {
 			gameID: {
 				type: Sequelize.INTEGER
 			},
-			name: {
-				type: Sequelize.STRING
+			playerID: {
+				type: Sequelize.INTEGER
 			},
-			isOwner: {
-				type: Sequelize.BOOLEAN
+			roleID: {
+				type: Sequelize.INTEGER
 			},
 			createdAt: {
 				allowNull: false,
@@ -28,6 +28,6 @@ module.exports = {
 		});
 	},
 	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('Players');
+		return queryInterface.dropTable('GameRoles');
 	}
 };
