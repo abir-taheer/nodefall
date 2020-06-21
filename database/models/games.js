@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
 		'Games',
 		{
 			locationID: DataTypes.INTEGER,
-			roomID: DataTypes.INTEGER
+			roomID: DataTypes.INTEGER,
+			isActive: DataTypes.BOOLEAN
 		},
 		{}
 	);
