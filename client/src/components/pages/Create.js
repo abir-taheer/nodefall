@@ -3,8 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 
 class Create extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			room_name: '',
 			room_pass: '',
