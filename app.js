@@ -1,3 +1,4 @@
+require('express-async-errors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const sessionSecret =

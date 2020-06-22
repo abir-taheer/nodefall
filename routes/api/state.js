@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Players } = require('./../../database');
+const { Players, Rooms } = require('./../../database');
 
 router.get('/', async (req, res) => {
 	let player, room;
@@ -9,12 +9,12 @@ router.get('/', async (req, res) => {
 	// If the playerID is set, check to make sure that the room is still occupied
 	if (typeof playerID === 'number') {
 		player = await Players.findOne({ where: { id: playerID } });
-		room = await player.getRoom();
-
+		room = await Rooms.findOne({ where: { id: player.roomID } });
 		const isActive = await room.getIsActive();
 
+		inRoom = isActive;
+
 		if (!isActive) {
-			inRoom = false;
 			delete req.session.playerID;
 		}
 	}
