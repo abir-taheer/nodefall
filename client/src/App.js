@@ -1,18 +1,14 @@
 import React from 'react';
-import './App.modules.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './components/home';
-import Create from './components/create';
-import Lobby from './components/lobby';
+import { BrowserRouter } from 'react-router-dom';
+import AppProvider from './components/context/AppProvider';
+import Content from './components/Content';
 
 function App() {
 	return (
 		<BrowserRouter>
-			<Switch>
-				<Route path="/create" component={Create} />
-				<Route path="/lobby" component={Lobby} />
-				<Route path="/" component={Home} />
-			</Switch>
+			<AppProvider>
+				<Content />
+			</AppProvider>
 		</BrowserRouter>
 	);
 }
