@@ -6,10 +6,19 @@ class Create extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			room_name: '',
-			room_pass: '',
-			nickname: ''
+			roomName: '',
+			password: '',
+			playerName: ''
 		};
+		this.updateField = this.updateField.bind(this);
+	}
+
+	updateField(ev) {
+		const name = ev.target.getAttribute('name');
+		const value = ev.target.value;
+		this.setState({
+			[name]: value
+		});
 	}
 
 	render() {
@@ -19,37 +28,26 @@ class Create extends React.Component {
 				<form noValidate autoComplete="off">
 					<TextField
 						id="outlined-basic"
-						label="Nickname"
-						required
+						label="Your Name"
+						name={'playerName'}
 						variant="outlined"
-						onChange={data => {
-							this.setState({
-								nickname: data.target.value
-							});
-						}}
+						onChange={this.updateField}
+						required
 					/>
 					<br />
 					<TextField
 						id="outlined-basic"
 						label="Room Name"
-						required
 						variant="outlined"
-						onChange={data => {
-							this.setState({
-								room_name: data.target.value
-							});
-						}}
+						onChange={this.updateField}
+						required
 					/>
 					<br />
 					<TextField
 						id="outlined-basic"
 						label="Room Password"
 						variant="outlined"
-						onChange={data => {
-							this.setState({
-								room_pass: data.target.value
-							});
-						}}
+						onChange={this.updateField}
 					/>
 					<br />
 					<Fab variant="extended">Create Room!</Fab>
