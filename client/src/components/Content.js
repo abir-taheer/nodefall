@@ -2,12 +2,14 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Create from './pages/Create';
 import Home from './pages/Home';
+import Game from './pages/Game';
 
 const Content = () => {
 	return (
 		<Switch>
+			<Route path="/" exact component={Home} />
 			<Route path="/create" component={Create} />
-			<Route path="/" component={Home} />
+			<Route path={'/game/:publicID'} component={Game} />
 		</Switch>
 	);
 };
