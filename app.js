@@ -24,7 +24,7 @@ app.use(
 	})
 );
 
-io.set('transports'['websocket']);
+io.set('transports', ['websocket']);
 io.use(shared_session(session, cookieParser, { autosave: true }));
 ioListeners(io);
 
