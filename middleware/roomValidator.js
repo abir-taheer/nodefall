@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { players, rooms } = require('./../database');
+const { players } = require('./../database');
 
 router.use(async (req, res, next) => {
 	const playerId = req.session.playerId;
