@@ -1,17 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-	const Roles = sequelize.define(
-		'Roles',
+	const roles = sequelize.define(
+		'roles',
 		{
 			name: DataTypes.STRING,
 			locationId: DataTypes.INTEGER
 		},
 		{}
 	);
-	Roles.associate = function (models) {
+	roles.associate = function (models) {
 		// associations can be defined here
-		Roles.belongsTo(models.Locations);
-		Roles.hasMany(models.GameRoles);
+		roles.belongsTo(models.locations);
+		roles.hasMany(models.gameroles);
 	};
-	return Roles;
+	return roles;
 };

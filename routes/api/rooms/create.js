@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const RequestRefusalError = require('./../../../utils/RequestRefusalError');
-const { Rooms, Players } = require('./../../../database');
+const { rooms, players } = require('./../../../database');
 const bcrypt = require('bcrypt');
 const cryptoRandomString = require('crypto-random-string');
 
@@ -42,14 +42,14 @@ router.post('/', async (req, res) => {
 		type: 'distinguishable'
 	});
 
-	const room = await Rooms.create({
+	const room = await rooms.create({
 		publicId,
 		name: roomName,
 		isActive: true,
 		password
 	});
 
-	const player = await Players.create({
+	const player = await players.create({
 		name: playerName,
 		roomId: room.id,
 		isOwner: true,

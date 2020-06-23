@@ -13,7 +13,7 @@ module.exports = {
       }], {});
     */
 		return queryInterface
-			.bulkInsert('Locations', [
+			.bulkInsert('locations', [
 				{
 					locationId: 10,
 					name: 'High School',
@@ -22,7 +22,7 @@ module.exports = {
 				}
 			])
 			.then(() => {
-				return queryInterface.bulkInsert('Roles', [
+				return queryInterface.bulkInsert('roles', [
 					{
 						roleId: 100,
 						name: 'Janitor',
@@ -44,7 +44,7 @@ module.exports = {
     */
 
 		return queryInterface.bulkDelete('Location', null, {}).then(() => {
-			return queryInterface.bulkDelete('Roles', null, {});
+			return queryInterface.bulkDelete('roles', null, {});
 		});
 	}
 };

@@ -2,8 +2,8 @@
 const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
-	const Rooms = sequelize.define(
-		'Rooms',
+	const rooms = sequelize.define(
+		'rooms',
 		{
 			name: DataTypes.STRING,
 			publicId: DataTypes.STRING,
@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	);
-	Rooms.associate = function (models) {
+	rooms.associate = function (models) {
 		// associations can be defined here
-		Rooms.hasMany(models.Players);
-		Rooms.hasMany(models.Games);
+		rooms.hasMany(models.players);
+		rooms.hasMany(models.games);
 	};
 
-	Rooms.prototype.getIsActive = async function () {
+	rooms.prototype.getIsActive = async function () {
 		if (!this.isActive) {
 			return false;
 		}
@@ -48,9 +48,9 @@ module.exports = (sequelize, DataTypes) => {
 		return true;
 	};
 
-	Rooms.prototype.checkPassword = async function (password) {
+	rooms.prototype.checkPassword = async function (password) {
 		return await bcrypt.compare(password, this.password);
 	};
 
-	return Rooms;
+	return rooms;
 };

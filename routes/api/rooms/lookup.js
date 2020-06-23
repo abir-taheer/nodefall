@@ -1,9 +1,9 @@
 const router = require('express').Router({ mergeParams: true });
-const { Rooms } = require('./../../../database');
+const { rooms } = require('./../../../database');
 router.get('/', async (req, res) => {
 	const { publicId } = req.params;
 
-	const room = await Rooms.findOne({ where: { publicId } });
+	const room = await rooms.findOne({ where: { publicId } });
 
 	if (room) {
 		const hasPassword = room.password !== null;

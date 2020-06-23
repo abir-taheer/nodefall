@@ -53,7 +53,7 @@ const Lobby = props => {
 				</Grid>
 			</div>
 
-			{/* List of Players */}
+			{/* List of players */}
 			<ThemeProvider theme={theme}>
 				<List>
 					<ListItem>

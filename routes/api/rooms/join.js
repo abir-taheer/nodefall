@@ -1,6 +1,6 @@
 const router = require('express').Router({ mergeParams: true });
 const RequestRefusalError = require('./../../../utils/RequestRefusalError');
-const { Rooms, Players } = require('./../../../database');
+const { rooms, players } = require('./../../../database');
 
 router.post('/', async (req, res) => {
 	// Anti-spam
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 
 	const { publicId } = req.params;
 
-	const room = await Rooms.findOne({ where: { publicId } });
+	const room = await rooms.findOne({ where: { publicId } });
 
 	let isValid = room && (await room.getIsActive());
 
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
 	}
 
 	// Now that they've passed the checks, add them to the room
-	const player = await Players.create({
+	const player = await players.create({
 		name,
 		roomId: room.id,
 		isOwner: false,

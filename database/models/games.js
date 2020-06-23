@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-	const Games = sequelize.define(
-		'Games',
+	const games = sequelize.define(
+		'games',
 		{
 			locationId: DataTypes.INTEGER,
 			roomId: DataTypes.INTEGER,
@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	);
-	Games.associate = function (models) {
+	games.associate = function (models) {
 		// associations can be defined here
-		Games.belongsTo(models.Rooms);
-		Games.belongsTo(models.Locations);
-		Games.hasMany(models.GameRoles);
+		games.belongsTo(models.rooms);
+		games.belongsTo(models.locations);
+		games.hasMany(models.gameroles);
 	};
-	return Games;
+	return games;
 };
