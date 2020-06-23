@@ -7,6 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
+
 const useStyles = makeStyles(theme => ({
 	root: {
 		margin: 0
@@ -52,7 +53,7 @@ const Lobby = props => {
 				</Grid>
 			</div>
 
-			{/* List of Players */}
+			{/* List of players */}
 			<ThemeProvider theme={theme}>
 				<List>
 					<ListItem>

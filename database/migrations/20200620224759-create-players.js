@@ -1,14 +1,14 @@
 'use strict';
 module.exports = {
 	up: (queryInterface, Sequelize) => {
-		return queryInterface.createTable('Players', {
+		return queryInterface.createTable('players', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			roomID: {
+			roomId: {
 				type: Sequelize.INTEGER
 			},
 			isOwner: {
@@ -31,6 +31,6 @@ module.exports = {
 		});
 	},
 	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('Players');
+		return queryInterface.dropTable('players');
 	}
 };
