@@ -4,11 +4,12 @@ import AppContext from '../context/AppContext';
 
 const Join = ({ room }) => {
 	const [password, setPassword] = React.useState('');
+	const [name, setName] = React.useState('');
 	const context = React.useContext(AppContext);
 
 	const joinRoom = () => {
 		axios
-			.post(`/api/rooms/${room?.publicID}/join`, { password })
+			.post(`/api/rooms/${room?.publicID}/join`, { name, password })
 			.then(res => {
 				context.updateContext();
 			})
@@ -22,6 +23,12 @@ const Join = ({ room }) => {
 
 	return (
 		<div>
+			<input
+				placeholder={'name'}
+				value={name}
+				onChange={ev => setName(ev.target.value)}
+			/>
+			<br />
 			{room?.hasPassword && (
 				<input
 					value={password}
@@ -29,7 +36,7 @@ const Join = ({ room }) => {
 					placeholder={'password'}
 				/>
 			)}
-
+			<br />
 			<button onClick={joinRoom}>Join Room</button>
 		</div>
 	);
