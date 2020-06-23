@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
 			payload: {
 				publicID: room.publicID,
 				name: room.name,
-				hasPassword
+				hasPassword,
+				isActive: await room.getIsActive()
 			}
 		});
 	} else {
