@@ -51,5 +51,6 @@
 	},
 	"mocha": {
 		"recursive": true
-	}
+	},
+	"heroku-run-build-script": true
 }
