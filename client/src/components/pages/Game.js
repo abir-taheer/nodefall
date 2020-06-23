@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import AppContext from '../context/AppContext';
+import Join from '../Game/Join';
 
 const Game = () => {
 	const { publicID } = useParams();
@@ -58,8 +59,12 @@ const Game = () => {
 	// The final case is that they're not in the room and that they need to join it.
 	return (
 		<div>
-			<p>You are attempting to join room: {publicID}</p>
+			<p>
+				You are attempting to join room: {publicID}.{' '}
+				{room?.hasPassword && 'There is a password in this room.'}
+			</p>
 			<pre>{JSON.stringify(room, null, 2)}</pre>
+			<Join room={room} />
 		</div>
 	);
 };
