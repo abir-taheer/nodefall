@@ -16,8 +16,6 @@ const RoomHandler = () => {
 		});
 
 		socket.emit('active');
-
-		return () => socket.removeAllListeners('updatePlayers');
 	}, [socket]);
 
 	return (
