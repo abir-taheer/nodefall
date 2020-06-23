@@ -8,13 +8,13 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			gameID: {
+			gameId: {
 				type: Sequelize.INTEGER
 			},
-			playerID: {
+			playerId: {
 				type: Sequelize.INTEGER
 			},
-			roleID: {
+			roleId: {
 				type: Sequelize.INTEGER
 			},
 			createdAt: {

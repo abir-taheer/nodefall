@@ -9,7 +9,7 @@ const Content = () => {
 		<Switch>
 			<Route path="/" exact component={Home} />
 			<Route path="/create" component={Create} />
-			<Route path={'/game/:publicID'} component={Game} />
+			<Route path={'/game/:publicId'} component={Game} />
 		</Switch>
 	);
 };

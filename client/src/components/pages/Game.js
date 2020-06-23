@@ -5,7 +5,7 @@ import AppContext from '../context/AppContext';
 import Join from '../Game/Join';
 
 const Game = () => {
-	const { publicID } = useParams();
+	const { publicId } = useParams();
 	const [room, setRoom] = React.useState(null);
 	const [status, setStatus] = React.useState('loading');
 	const context = React.useContext(AppContext);
@@ -13,7 +13,7 @@ const Game = () => {
 
 	React.useEffect(() => {
 		axios
-			.get(`/api/rooms/${publicID}`)
+			.get(`/api/rooms/${publicId}`)
 			.then(res => {
 				setStatus('loaded');
 				setRoom(res.data.payload);
@@ -25,7 +25,7 @@ const Game = () => {
 					setStatus('error');
 				}
 			});
-	}, [publicID]);
+	}, [publicId]);
 
 	if (status === 'loading') {
 		return <div>Loading Room...</div>;
@@ -40,11 +40,11 @@ const Game = () => {
 	}
 
 	if (!isValid) {
-		return <div>There is no room with that publicID.</div>;
+		return <div>There is no room with that publicId.</div>;
 	}
 
 	if (context?.inRoom) {
-		if (context?.player?.room?.publicID === room?.publicID) {
+		if (context?.player?.room?.publicId === room?.publicId) {
 			// The player belongs in this room, show them the gameplay stuff
 			return <div>You are already in this room. Good Job.</div>;
 		} else {
@@ -60,7 +60,7 @@ const Game = () => {
 	return (
 		<div>
 			<p>
-				You are attempting to join room: {publicID}.{' '}
+				You are attempting to join room: {publicId}.{' '}
 				{room?.hasPassword && 'There is a password in this room.'}
 			</p>
 			<pre>{JSON.stringify(room, null, 2)}</pre>

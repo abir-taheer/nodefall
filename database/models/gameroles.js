@@ -3,9 +3,9 @@ module.exports = (sequelize, DataTypes) => {
 	const GameRoles = sequelize.define(
 		'GameRoles',
 		{
-			gameID: DataTypes.INTEGER,
-			playerID: DataTypes.INTEGER,
-			roleID: DataTypes.INTEGER
+			gameId: DataTypes.INTEGER,
+			playerId: DataTypes.INTEGER,
+			roleId: DataTypes.INTEGER
 		},
 		{}
 	);

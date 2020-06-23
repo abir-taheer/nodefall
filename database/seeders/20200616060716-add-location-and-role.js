@@ -26,7 +26,7 @@ module.exports = {
 					{
 						roleId: 100,
 						name: 'Janitor',
-						LocID: 10,
+						LocId: 10,
 						createdAt: now,
 						updatedAt: now
 					}

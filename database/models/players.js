@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
 		'Players',
 		{
 			name: DataTypes.STRING,
-			roomID: DataTypes.INTEGER,
+			roomId: DataTypes.INTEGER,
 			isOwner: DataTypes.BOOLEAN,
 			isActive: DataTypes.BOOLEAN
 		},
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 	Players.associate = function (models) {
 		// associations can be defined here
 		Players.belongsTo(models.Rooms);
-		Players.hasMany(models.GameRoles, { foreignKey: 'roomID' });
+		Players.hasMany(models.GameRoles, { foreignKey: 'roomId' });
 	};
 	return Players;
 };

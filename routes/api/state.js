@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 				player: {
 					name: player.name,
 					room: {
-						publicID: room.publicID,
+						publicId: room.publicId,
 						name: room.name,
 						isOwner: player.isOwner
 					}

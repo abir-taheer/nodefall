@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 const cryptoRandomString = require('crypto-random-string');
 
 router.post('/', async (req, res) => {
-	const playerID = req.session.playerID;
-	if (typeof playerID === 'number') {
+	const playerId = req.session.playerId;
+	if (req.inRoom) {
 		throw new RequestRefusalError(
 			'You are already part of another room.',
 			'ALREADY_IN_ROOM'
@@ -20,14 +20,14 @@ router.post('/', async (req, res) => {
 	if (!roomName || !playerName) {
 		throw new RequestRefusalError(
 			'Room name and player name cannot be left empty.',
-			'INVALID_FIELDS'
+			'INVALId_FIELDS'
 		);
 	}
 
 	if (roomName.length > 64 || playerName.length > 64) {
 		throw new RequestRefusalError(
 			'Room name and player name cannot be longer than 64 characters',
-			'INVALID_FIELDS'
+			'INVALId_FIELDS'
 		);
 	}
 
@@ -35,15 +35,15 @@ router.post('/', async (req, res) => {
 		password = await bcrypt.hash(password, 12);
 	}
 
-	const publicIDLen = Math.floor(Math.random() * 4) + 6;
+	const publicIdLen = Math.floor(Math.random() * 4) + 6;
 
-	const publicID = cryptoRandomString({
-		length: publicIDLen,
+	const publicId = cryptoRandomString({
+		length: publicIdLen,
 		type: 'distinguishable'
 	});
 
 	const room = await Rooms.create({
-		publicID,
+		publicId,
 		name: roomName,
 		isActive: true,
 		password
@@ -51,19 +51,19 @@ router.post('/', async (req, res) => {
 
 	const player = await Players.create({
 		name: playerName,
-		roomID: room.id,
+		roomId: room.id,
 		isOwner: true,
 		isActive: false
 	});
 
-	req.session.playerID = player.id;
+	req.session.playerId = player.id;
 
 	res.json({
 		success: true,
 		payload: {
 			room: {
 				name: room.name,
-				publicID
+				publicId
 			}
 		}
 	});

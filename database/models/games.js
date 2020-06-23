@@ -3,8 +3,8 @@ module.exports = (sequelize, DataTypes) => {
 	const Games = sequelize.define(
 		'Games',
 		{
-			locationID: DataTypes.INTEGER,
-			roomID: DataTypes.INTEGER,
+			locationId: DataTypes.INTEGER,
+			roomId: DataTypes.INTEGER,
 			isActive: DataTypes.BOOLEAN
 		},
 		{}

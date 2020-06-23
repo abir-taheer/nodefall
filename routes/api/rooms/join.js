@@ -29,19 +29,19 @@ router.post('/', async (req, res) => {
 	if (!name) {
 		throw new RequestRefusalError(
 			'You must provide a name to join the room',
-			'INVALID_NAME'
+			'INVALId_NAME'
 		);
 	}
 
-	const { publicID } = req.params;
+	const { publicId } = req.params;
 
-	const room = await Rooms.findOne({ where: { publicID } });
+	const room = await Rooms.findOne({ where: { publicId } });
 
 	let isValid = room && (await room.getIsActive());
 
 	if (!isValid) {
 		throw new RequestRefusalError(
-			'There is no room with that ID.',
+			'There is no room with that Id.',
 			'ROOM_NOT_FOUND'
 		);
 	}
@@ -54,19 +54,19 @@ router.post('/', async (req, res) => {
 
 		throw new RequestRefusalError(
 			'That password is not valid.',
-			'INVALID_PASSWORD'
+			'INVALId_PASSWORD'
 		);
 	}
 
 	// Now that they've passed the checks, add them to the room
 	const player = await Players.create({
 		name,
-		roomID: room.id,
+		roomId: room.id,
 		isOwner: false,
 		isActive: false
 	});
 
-	req.session.playerID = player.id;
+	req.session.playerId = player.id;
 
 	res.json({
 		success: true,
@@ -75,7 +75,7 @@ router.post('/', async (req, res) => {
 				id: player.id,
 				name: player.name,
 				room: {
-					publicID
+					publicId
 				}
 			}
 		}

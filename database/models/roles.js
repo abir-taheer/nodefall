@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
 		'Roles',
 		{
 			name: DataTypes.STRING,
-			locationID: DataTypes.INTEGER
+			locationId: DataTypes.INTEGER
 		},
 		{}
 	);

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.use('/create', require('./create'));
-router.use('/:publicID/join', require('./join'));
-router.use('/:publicID', require('./lookup'));
+router.use('/:publicId/join', require('./join'));
+router.use('/:publicId', require('./lookup'));
 
 module.exports = router;

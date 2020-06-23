@@ -9,7 +9,7 @@ const Join = ({ room }) => {
 
 	const joinRoom = () => {
 		axios
-			.post(`/api/rooms/${room?.publicID}/join`, { name, password })
+			.post(`/api/rooms/${room?.publicId}/join`, { name, password })
 			.then(res => {
 				context.updateContext();
 			})
