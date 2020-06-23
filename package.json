@@ -9,7 +9,7 @@
 		"dev": "npx nodemon index.js --ignore './client/' --ignore node_modules",
 		"build": "npx sequelize db:migrate",
 		"prettier": "npx prettier --write .",
-		"heroku-postbuild": "cd client && npm install && npm run build"
+		"heroku-postbuild": "npx sequelize db:migrate && cd client && npm install && npm run build"
 	},
 	"dependencies": {
 		"bcrypt": "^5.0.0",
@@ -51,6 +51,5 @@
 	},
 	"mocha": {
 		"recursive": true
-	},
-	"heroku-run-build-script": true
+	}
 }
