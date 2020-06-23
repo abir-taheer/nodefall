@@ -4,6 +4,6 @@ module.exports = (socket, player, emitPlayers) => {
 			isActive: true
 		});
 
-		emitPlayers();
+		await emitPlayers();
 	});
 };

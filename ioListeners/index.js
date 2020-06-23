@@ -2,7 +2,6 @@ const { players } = require('./../database');
 
 module.exports = io => {
 	io.on('connection', async socket => {
-		console.log('someone connected');
 		if (typeof socket.handshake.session.playerId !== 'number') {
 			await socket.emit('appError', {
 				message: 'You must join a room first.',
@@ -19,7 +18,7 @@ module.exports = io => {
 
 		const room = await player.getRoom();
 
-		socket.join(room.publicId);
+		const publicID = room.socket.join(room.publicId);
 
 		const emitPlayerList = async () => {
 			const playerList = await room.getPlayers({
