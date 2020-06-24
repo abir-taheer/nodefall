@@ -11,11 +11,13 @@ const RoomHandler = () => {
 			return;
 		}
 
-		socket.on('updatePlayers', list => {
-			setPlayers(list);
-		});
+		socket.on('ready-to-listen', () => {
+			socket.on('updatePlayers', list => {
+				setPlayers(list);
+			});
 
-		socket.emit('active');
+			socket.emit('active');
+		});
 	}, [socket]);
 
 	return (

@@ -12,27 +12,19 @@ module.exports = io => {
 			return;
 		}
 
-		const player = await players.findOne({
-			where: { id: socket.handshake.session.playerId }
-		});
+		const player = await players.getById(socket.handshake.session.playerId);
 
-		const room = await player.getRoom();
+		socket.join(player.roomId);
 
-		const publicID = room.socket.join(room.publicId);
+		require('./active')(socket, io);
 
-		const emitPlayerList = async () => {
-			const playerList = await room.getPlayers({
-				attributes: ['name', 'isActive', 'isOwner']
-			});
-
-			io.to(room.publicId).emit('updatePlayers', playerList);
-		};
-
-		require('./active')(socket, player, emitPlayerList);
+		socket.emit('ready-to-listen');
 
 		socket.on('disconnect', async () => {
 			await player.update({ isActive: false });
-			await emitPlayerList();
+			const allPlayers = await player.getAllPlayers();
+
+			io.to(player.roomId).emit('updatePlayers', allPlayers);
 		});
 	});
 };
