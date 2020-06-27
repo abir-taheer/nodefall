@@ -1,5 +1,4 @@
 require('express-async-errors');
-
 const { expect } = require('chai');
 const express = require('express');
 const app = express();

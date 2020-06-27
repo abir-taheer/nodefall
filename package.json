@@ -9,12 +9,14 @@
 		"dev": "npx nodemon index.js --ignore './client/' --ignore node_modules",
 		"build": "npx sequelize db:migrate",
 		"prettier": "npx prettier --write .",
-		"heroku-postbuild": "cd client && npm install && npm run build"
+		"heroku-postbuild": "npm run build && cd client && npm install && npm run build"
 	},
 	"dependencies": {
+		"bcrypt": "^5.0.0",
 		"body-parser": "latest",
 		"connect-session-sequelize": "^6.1.1",
 		"cookie-parser": "^1.4.5",
+		"crypto-random-string": "^3.2.0",
 		"dotenv": "latest",
 		"express": "latest",
 		"express-async-errors": "^3.1.1",

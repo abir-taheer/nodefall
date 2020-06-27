@@ -1,19 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-	const GameRoles = sequelize.define(
-		'GameRoles',
+	const gameroles = sequelize.define(
+		'gameroles',
 		{
-			gameID: DataTypes.INTEGER,
-			playerID: DataTypes.INTEGER,
-			roleID: DataTypes.INTEGER
+			gameId: DataTypes.INTEGER,
+			playerId: DataTypes.INTEGER,
+			roleId: DataTypes.INTEGER
 		},
 		{}
 	);
-	GameRoles.associate = function (models) {
+	gameroles.associate = function (models) {
 		// associations can be defined here
-		GameRoles.belongsTo(models.Games);
-		GameRoles.belongsTo(models.Players);
-		GameRoles.belongsTo(models.Roles);
+		gameroles.belongsTo(models.games);
+		gameroles.belongsTo(models.players);
+		gameroles.belongsTo(models.roles);
 	};
-	return GameRoles;
+	return gameroles;
 };

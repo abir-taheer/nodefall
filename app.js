@@ -1,3 +1,4 @@
+require('express-async-errors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const sessionSecret =
@@ -24,7 +25,7 @@ app.use(
 	})
 );
 
-io.set('transports'['websocket']);
+io.set('transports', ['websocket']);
 io.use(shared_session(session, cookieParser, { autosave: true }));
 ioListeners(io);
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
+import Nodefall from '../../img/Nodefall.gif';
+import Location from '../Game/Location';
 const buttonStyle = {
 	variant: 'outlined',
 	size: 'large',
@@ -11,20 +12,16 @@ const buttonStyle = {
 function Home() {
 	return (
 		<div>
-			<img
-				src="Nodefall.gif"
-				width="300px"
-				margin="auto"
-				alt="Nodefall"
-			></img>
+			<img src={Nodefall} width="300px" alt="Nodefall" />
 			<br />
 			<Button {...buttonStyle}>
-                <Link to="/create" style={{"text-decoration": "none"}}>
-                    Create a game
-                </Link>
-            </Button>
+				<Link to="/create" style={{ textDecoration: 'none' }}>
+					Create a game
+				</Link>
+			</Button>
 			<br />
 			<Button {...buttonStyle}>Join a game</Button>
+			<Location/>
 		</div>
 	);
 }
