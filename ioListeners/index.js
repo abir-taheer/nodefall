@@ -1,5 +1,3 @@
-const { players } = require('./../database');
-
 module.exports = io => {
 	io.on('connection', async socket => {
 		if (typeof socket.handshake.session.playerId !== 'number') {
@@ -12,19 +10,10 @@ module.exports = io => {
 			return;
 		}
 
-		const player = await players.getById(socket.handshake.session.playerId);
-
-		socket.join(player.roomId);
+		const room = socket.handshake.session.room.publicId;
+		socket.join(room);
 
 		require('./active')(socket, io);
-
-		socket.emit('ready-to-listen');
-
-		socket.on('disconnect', async () => {
-			await player.update({ isActive: false });
-			const allPlayers = await player.getAllPlayers();
-
-			io.to(player.roomId).emit('updatePlayers', allPlayers);
-		});
+		require('./disconnect')(socket, io);
 	});
 };
