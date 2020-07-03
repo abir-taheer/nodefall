@@ -15,5 +15,18 @@ module.exports = (sequelize, DataTypes) => {
 		players.belongsTo(models.rooms);
 		players.hasMany(models.gameroles);
 	};
+
+	players.prototype.getAllPlayers = async function () {
+		return players.findAll({
+			where: {
+				roomId: this.roomId
+			}
+		});
+	};
+
+	players.getById = async id => {
+		return players.findOne({ where: { id } });
+	};
+
 	return players;
 };
