@@ -21,7 +21,7 @@ function Home() {
 			</Button>
 			<br />
 			<Button {...buttonStyle}>Join a game</Button>
-			<Location/>
+			<Location />
 		</div>
 	);
 }
