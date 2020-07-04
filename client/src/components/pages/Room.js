@@ -6,7 +6,7 @@ import Join from '../Game/Join';
 import RoomHandler from '../Game/RoomHandler';
 import SocketProvider from '../Game/SocketProvider';
 
-const Game = () => {
+const Room = () => {
 	const { publicId } = useParams();
 	const [room, setRoom] = React.useState(null);
 	const [status, setStatus] = React.useState('loading');
@@ -70,4 +70,4 @@ const Game = () => {
 	);
 };
 
-export default Game;
+export default Room;
