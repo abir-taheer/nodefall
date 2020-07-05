@@ -16,7 +16,6 @@ class AppProvider extends React.Component {
 
 	updateContext() {
 		axios.get('/api/state').then(res => {
-			console.log(res);
 			if (res.data.success) {
 				this.setState(res.data.payload);
 			}

@@ -43,7 +43,7 @@ class Create extends React.Component {
 	render() {
 		if (this.context.inRoom) {
 			return (
-				<Redirect to={`/game/${this.context.player.room.publicId}`} />
+				<Redirect to={`/room/${this.context.player.room.publicId}`} />
 			);
 		}
 

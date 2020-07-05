@@ -67,6 +67,10 @@ router.post('/', async (req, res) => {
 	});
 
 	req.session.playerId = player.id;
+	req.session.room = {
+		id: room.id,
+		publicId: room.publicId
+	};
 
 	res.json({
 		success: true,

@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import AppContext from '../context/AppContext';
 import Join from '../Game/Join';
+import RoomHandler from '../Game/RoomHandler';
+import SocketProvider from '../Game/SocketProvider';
 
-const Game = () => {
+const Room = () => {
 	const { publicId } = useParams();
 	const [room, setRoom] = React.useState(null);
 	const [status, setStatus] = React.useState('loading');
@@ -43,30 +45,29 @@ const Game = () => {
 		return <div>There is no room with that publicId.</div>;
 	}
 
-	if (context?.inRoom) {
-		if (context?.player?.room?.publicId === room?.publicId) {
-			// The player belongs in this room, show them the gameplay stuff
-			return <div>You are already in this room. Good Job.</div>;
-		} else {
-			// The player does not belong in this room, but they belong in another room.
-			// Show them a button to take them to the other room.
-			return (
-				<div>You are already in room {context?.player?.room?.name}</div>
-			);
-		}
+	if (!context?.inRoom) {
+		return (
+			<div>
+				<p>
+					You are attempting to join room: {publicId}.{' '}
+					{room?.hasPassword && 'There is a password in this room.'}
+				</p>
+				<pre>{JSON.stringify(room, null, 2)}</pre>
+				<Join room={room} />
+			</div>
+		);
 	}
 
-	// The final case is that they're not in the room and that they need to join it.
+	if (context?.player?.room?.publicId !== room?.publicId) {
+		return <div>You are already in room {context?.player?.room?.name}</div>;
+	}
+
+	// The player belongs in this room, show them the gameplay stuff
 	return (
-		<div>
-			<p>
-				You are attempting to join room: {publicId}.{' '}
-				{room?.hasPassword && 'There is a password in this room.'}
-			</p>
-			<pre>{JSON.stringify(room, null, 2)}</pre>
-			<Join room={room} />
-		</div>
+		<SocketProvider>
+			<RoomHandler />
+		</SocketProvider>
 	);
 };
 
-export default Game;
+export default Room;
