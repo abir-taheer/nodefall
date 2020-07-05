@@ -15,6 +15,15 @@ const shared_session = require('express-socket.io-session');
 const morgan = require('morgan');
 const session = require('./middleware/session');
 
+const redisUrl = process.env.REDIS_URL;
+if (redisUrl) {
+	const redis = require('redis');
+	const redisAdapter = require('socket.io-redis');
+	const pub = redis.createClient(redisUrl);
+	const sub = redis.createClient(redisUrl);
+	io.adapter(redisAdapter({ pubClient: pub, subClient: sub }));
+}
+
 app.use(session);
 app.use(cookieParser);
 app.use(bodyParser.urlencoded({ extended: false }));
